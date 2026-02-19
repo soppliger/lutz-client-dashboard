@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Library — Lutz & Company, PC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Top Nav -->
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="/" class="logo"><span class="chevron">&gt;</span> FOUNDRY_AI</a>
+            <span class="nav-client">Lutz & Company, PC</span>
+        </div>
+    </nav>
+
+    <!-- Library Header -->
+    <div class="lib-header">
+        <h1>Asset Library</h1>
+        <div class="lib-controls">
+            <input type="search" id="lib-search" placeholder="Search assets...">
+            <select id="lib-filter">
+                <option value="all">All Types</option>
+                <option value="link">Links</option>
+                <option value="content">Notes</option>
+                <option value="file">Files</option>
+            </select>
+            <select id="lib-sort">
+                <option value="date-desc">Newest First</option>
+                <option value="date-asc">Oldest First</option>
+                <option value="name-asc">Name A–Z</option>
+                <option value="name-desc">Name Z–A</option>
+            </select>
+            <button class="btn-primary" id="lib-add-btn">+ Add Asset</button>
+        </div>
+    </div>
+
+    <!-- Asset Grid -->
+    <div class="lib-grid" id="lib-grid">
+        <!-- Cards rendered by JS -->
+    </div>
+
+    <!-- Add / Edit Modal -->
+    <div class="modal-overlay" id="modal" style="display:none">
+        <div class="modal-box">
+            <h2 id="modal-title">Add New Asset</h2>
+            <form id="asset-form">
+                <input type="hidden" id="f-id">
+                <label for="f-title">Title</label>
+                <input type="text" id="f-title" required>
+
+                <label for="f-desc">Description</label>
+                <textarea id="f-desc"></textarea>
+
+                <label for="f-link">Paste Link</label>
+                <input type="text" id="f-link" placeholder="https://...">
+
+                <label for="f-content">Paste Content</label>
+                <textarea id="f-content" placeholder="Paste text or notes here..."></textarea>
+
+                <label for="f-file">Upload File</label>
+                <input type="file" id="f-file">
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-ghost" id="modal-cancel">Cancel</button>
+                    <button type="submit" class="btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-logo"><span class="chevron">&gt;</span> FOUNDRY_AI</span>
+            <span class="footer-copy">Confidential &mdash; Prepared for Lutz & Company, PC</span>
+            <span class="footer-link"><a href="https://foundryaipartners.com" target="_blank">foundryaipartners.com</a></span>
+        </div>
+    </footer>
+
+    <!-- Persistent Audio Recorder -->
+    <div id="recorder-widget"></div>
+    <script src="/audio-recorder.js"></script>
+
+    <script>
+    (function () {
+      'use strict';
+
+      const LS_KEY = 'fai_asset_library';
+
+      // ── Data Layer ──────────────────────────────────────────────────
+      function load() {
+        try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+        catch { return []; }
+      }
+      function save(assets) { localStorage.setItem(LS_KEY, JSON.stringify(assets)); }
+
+      let assets = load();
+
+      // ── DOM refs ────────────────────────────────────────────────────
+      const grid       = document.getElementById('lib-grid');
+      const searchEl   = document.getElementById('lib-search');
+      const filterEl   = document.getElementById('lib-filter');
+      const sortEl     = document.getElementById('lib-sort');
+      const addBtn     = document.getElementById('lib-add-btn');
+      const modal      = document.getElementById('modal');
+      const modalTitle = document.getElementById('modal-title');
+      const form       = document.getElementById('asset-form');
+      const cancelBtn  = document.getElementById('modal-cancel');
+      const fId        = document.getElementById('f-id');
+      const fTitle     = document.getElementById('f-title');
+      const fDesc      = document.getElementById('f-desc');
+      const fLink      = document.getElementById('f-link');
+      const fContent   = document.getElementById('f-content');
+      const fFile      = document.getElementById('f-file');
+
+      // ── Render ──────────────────────────────────────────────────────
+      function render() {
+        let list = [...assets];
+
+        // Filter
+        const ft = filterEl.value;
+        if (ft !== 'all') list = list.filter(a => a.type === ft);
+
+        // Search
+        const q = searchEl.value.toLowerCase().trim();
+        if (q) list = list.filter(a =>
+          (a.title || '').toLowerCase().includes(q) ||
+          (a.description || '').toLowerCase().includes(q)
+        );
+
+        // Sort
+        const sv = sortEl.value;
+        list.sort((a, b) => {
+          if (sv === 'date-desc') return new Date(b.addedDate) - new Date(a.addedDate);
+          if (sv === 'date-asc')  return new Date(a.addedDate) - new Date(b.addedDate);
+          if (sv === 'name-asc')  return (a.title || '').localeCompare(b.title || '');
+          if (sv === 'name-desc') return (b.title || '').localeCompare(a.title || '');
+          return 0;
+        });
+
+        if (list.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state">
+              <h2>No assets yet</h2>
+              <p>Click <strong>+ Add Asset</strong> to get started.</p>
+            </div>`;
+          return;
+        }
+
+        grid.innerHTML = list.map(a => {
+          const typeLabel = a.type === 'link' ? 'LINK' : a.type === 'file' ? 'FILE' : 'NOTE';
+          const dateStr = new Date(a.addedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          return `
+          <div class="asset-card" data-id="${a.id}">
+            <span class="ac-type">${typeLabel}</span>
+            <h3>${esc(a.title)}</h3>
+            <p class="ac-desc">${esc(a.description || '')}</p>
+            <div class="ac-meta">
+              <span>${dateStr}</span>
+              <span class="ac-actions">
+                ${a.type === 'link' ? `<a href="${esc(a.source)}" target="_blank" class="btn-ghost">Open</a>` : ''}
+                ${a.type === 'file' ? `<button class="btn-ghost" onclick="window._downloadAsset('${a.id}')">Download</button>` : ''}
+                <button class="btn-ghost" onclick="window._editAsset('${a.id}')">Edit</button>
+                <button class="btn-danger" onclick="window._deleteAsset('${a.id}')">Delete</button>
+              </span>
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      function esc(s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+      }
+
+      // ── Modal ───────────────────────────────────────────────────────
+      function openModal(asset) {
+        if (asset) {
+          modalTitle.textContent = 'Edit Asset';
+          fId.value      = asset.id;
+          fTitle.value   = asset.title || '';
+          fDesc.value    = asset.description || '';
+          fLink.value    = asset.source || '';
+          fContent.value = asset.type === 'content' ? (asset.content || '') : '';
+        } else {
+          modalTitle.textContent = 'Add New Asset';
+          form.reset();
+          fId.value = '';
+        }
+        modal.style.display = 'flex';
+      }
+      function closeModal() { modal.style.display = 'none'; }
+
+      addBtn.addEventListener('click', () => openModal(null));
+      cancelBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = fId.value || Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+        const existing = assets.find(a => a.id === id);
+
+        let type = 'content';
+        let source = '';
+        let content = fContent.value;
+
+        if (fLink.value.trim()) {
+          type = 'link';
+          source = fLink.value.trim();
+          content = '';
+        } else if (fFile.files && fFile.files.length > 0) {
+          type = 'file';
+          source = fFile.files[0].name;
+          content = await readFileAsBase64(fFile.files[0]);
+        }
+
+        const asset = {
+          id,
+          title: fTitle.value.trim(),
+          description: fDesc.value.trim(),
+          type,
+          source,
+          content,
+          addedDate: existing ? existing.addedDate : new Date().toISOString(),
+        };
+
+        if (existing) {
+          const idx = assets.indexOf(existing);
+          assets[idx] = asset;
+        } else {
+          assets.push(asset);
+        }
+
+        save(assets);
+        closeModal();
+        render();
+      });
+
+      function readFileAsBase64(file) {
+        return new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.readAsDataURL(file);
+        });
+      }
+
+      // ── Global Handlers (called from inline onclick) ────────────────
+      window._editAsset = function (id) {
+        const a = assets.find(x => x.id === id);
+        if (a) openModal(a);
+      };
+
+      window._deleteAsset = function (id) {
+        if (!confirm('Delete this asset? This cannot be undone.')) return;
+        assets = assets.filter(x => x.id !== id);
+        save(assets);
+        render();
+      };
+
+      window._downloadAsset = function (id) {
+        const a = assets.find(x => x.id === id);
+        if (!a || a.type !== 'file') return;
+        const link = document.createElement('a');
+        link.href = a.content; // base64 data URL
+        link.download = a.source || 'download';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+
+      // ── Live Filters ───────────────────────────────────────────────
+      searchEl.addEventListener('input', render);
+      filterEl.addEventListener('change', render);
+      sortEl.addEventListener('change', render);
+
+      // ── Init ────────────────────────────────────────────────────────
+      render();
+    })();
+    </script>
+</body>
+</html>

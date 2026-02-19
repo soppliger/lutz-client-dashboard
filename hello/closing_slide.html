@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready to Deploy Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f0f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1E293B; /* Dark Navy Terminal Background */
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* keep top padding for title consistency, reduce bottom padding to remove overflow */
+            padding: 80px 60px 22px;
+            text-align: center;
+        }
+
+        .system-status {
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: #2563EB;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .system-status::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: #00FF00;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #00FF00;
+        }
+
+        .main-content {
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #FFFFFF;
+        }
+
+        .sub-headline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            color: #2563EB;
+            margin-bottom: 24px; /* reduced */
+            font-weight: 400;
+        }
+
+        .body-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #CBD5E1;
+            margin-bottom: 30px; /* reduced */
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-terminal {
+            background-color: #0F172A;
+            border: 1px solid #334155;
+            padding: 12px 40px; /* reduced vertical padding */
+            border-radius: 4px;
+            text-align: left;
+            display: inline-block;
+            min-width: 500px;
+        }
+
+        .terminal-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            color: #E2E8F0;
+            margin-bottom: 8px; /* slightly reduced */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prompt {
+            color: #2563EB;
+            font-weight: bold;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #2563EB;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Decorative Elements */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .corner-decoration {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #2563EB;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .bottom-left { bottom: -20px; left: -20px; border-right: none; border-top: none; }
+        .top-right { top: -20px; right: -20px; border-left: none; border-bottom: none; }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="grid-overlay"></div>
+        <div class="corner-decoration bottom-left"></div>
+        <div class="corner-decoration top-right"></div>
+
+        <div class="system-status">
+            SYSTEM_STATUS :: READY_TO_DEPLOY
+        </div>
+
+        <div class="main-content">
+            <h1>Ready to Deploy Intelligence</h1>
+            <div class="sub-headline">
+                "The next industrial revolution won't be televised—it will be automated."
+            </div>
+            
+            <p class="body-text">
+                Lutz & Company, PC has the operational scale, data infrastructure, and leadership vision to transform complexity into competitive advantage.
+            </p>
+
+            <div class="contact-terminal">
+                <div class="terminal-line">
+                    <span class="prompt">$</span> contact --target="Foundry AI Partners"
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">&gt;</span> CONNECTING...
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">&gt;</span> WEB: foundryaipartners.com
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">&gt;</span> STATUS: AWAITING_SIGNAL<span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Engagement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f0f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            color: #3B4252;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 80px; /* keep top padding to preserve title spacing */
+        }
+/* Header Section */
+        .header-bar {
+            border-bottom: 2px solid #2563EB;
+            padding-bottom: 20px;
+            margin-bottom: 20px; /* reduced from 40px */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E293B;
+            max-width: 800px;
+            line-height: 1.2;
+        }
+.slide-number {
+            font-family: 'JetBrains Mono', monospace;
+            color: #2563EB;
+            font-size: 18px;
+        }
+/* Price Tag / Offer Box */
+        .offer-box {
+            position: absolute;
+            top: 60px;
+            right: 80px;
+            background-color: #1E293B;
+            color: #FFFFFF;
+            padding: 15px 25px;
+            font-family: 'JetBrains Mono', monospace;
+            text-align: right;
+            border-left: 4px solid #00FF00; /* Green for 'Go' / Money */
+        }
+.offer-label {
+            font-size: 12px;
+            color: #94A3B8;
+            margin-bottom: 5px;
+        }
+.offer-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00FF00;
+        }
+/* Process Columns */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 0; /* reduced from 20px */
+        }
+.process-col {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            height: 410px; /* reduced from 420px to lower total slide height */
+            display: flex;
+            flex-direction: column;
+        }
+.col-header {
+            background-color: #1E293B;
+            color: #FFFFFF;
+            padding: 15px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+.col-header i {
+            color: #2563EB;
+        }
+.col-content {
+            padding: 20px; /* slightly reduced from 25px */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+.duration-badge {
+            display: inline-block;
+            background-color: #DBEAFE;
+            color: #1E40AF;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+.phase-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E293B;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+.detail-list {
+            list-style: none;
+        }
+.detail-list li {
+            font-size: 15px;
+            color: #4B5563;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+.detail-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: #2563EB;
+            font-weight: bold;
+            font-family: 'JetBrains Mono', monospace;
+        }
+/* Bottom Status */
+        .status-bar {
+            margin-top: 14px; /* reduced from 40px to bring overall page height under 720px */
+            border-top: 1px solid #E2E8F0;
+            padding-top: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: #64748B;
+            display: flex;
+            justify-content: space-between;
+        }
+</style>
+</head>
+<body><div class="slide-container">
+        <div class="header-bar">
+            <h1>Fixed-Fee Discovery Engagement</h1>
+            <span class="slide-number">03 :: SCOPE</span>
+        </div>
+<p style="font-size: 18px; color: rgb(75, 85, 99); margin-bottom: 10px; max-width: 968.832px; transform: translate(0px, 11.9699px); width: 968.832px; min-width: 968.832px;">
+            A focused, high-value engagement designed to produce a concrete, actionable blueprint for your AI journey.
+        </p>
+<div class="process-grid" style="transform: translate(0px, 56.8661px);">
+            <!-- Phase 1 -->
+            <div class="process-col">
+                <div class="col-header">
+                    <span>PHASE_01</span>
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="col-content">
+                    <div>
+<h3 class="phase-title">Stakeholder Workshops</h3>
+                    </div>
+                    <ul class="detail-list">
+                        <li><strong>Session 1:</strong> Business Process &amp; Pain Point Mapping (4h). Identify 5-7 key processes.</li>
+                        <li><strong>Session 2:</strong> Data &amp; Systems Deep Dive (4h). Discuss and document data sources, data quality, data classification, and data security.</li>
+                    </ul>
+                </div>
+            </div>
+<!-- Phase 2 -->
+            <div class="process-col">
+                <div class="col-header">
+                    <span>PHASE_02</span>
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <div class="col-content">
+                    <div>
+<h3 class="phase-title">Independent Analysis</h3>
+                    </div>
+                    <ul class="detail-list">
+                        <li>Review provided documentation and system diagrams.</li>
+                        <li>Synthesize workshop findings.</li>
+                        <li>Develop AI Opportunity Matrix and draft final report.</li>
+                    </ul>
+                </div>
+            </div>
+<!-- Phase 3 -->
+            <div class="process-col">
+                <div class="col-header">
+                    <span>PHASE_03</span>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="col-content">
+                    <div>
+<h3 class="phase-title">Final Presentation</h3>
+                    </div>
+                    <ul class="detail-list">
+                        <li>Executive presentation of the Assessment Report.</li>
+                        <li>Review of Opportunity Matrix.</li>
+                        <li>Selection of pilot project.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

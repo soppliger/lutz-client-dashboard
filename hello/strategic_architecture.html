@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f0f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            color: #3B4252;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+            /* keep top padding to preserve title spacing, reduce bottom padding to save height */
+            padding: 60px 80px 30px;
+        }
+/* Header Section */
+        .header-bar {
+            border-bottom: 2px solid #2563EB;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E293B;
+            max-width: 900px;
+            line-height: 1.2;
+        }
+.slide-number {
+            font-family: 'JetBrains Mono', monospace;
+            color: #2563EB;
+            font-size: 18px;
+        }
+/* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 480px;
+        }
+/* Left Column: Text */
+        .text-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+.highlight-quote {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2563EB;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            border-left: 4px solid #1E293B;
+            padding-left: 20px;
+        }
+.body-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4B5563;
+            margin-bottom: 20px;
+        }
+/* Right Column: Capabilities Stack */
+        .capabilities-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+        }
+.capability-module {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+.capability-module:nth-child(odd) {
+            border-left: 4px solid #2563EB;
+        }
+.capability-module:nth-child(even) {
+            border-left: 4px solid #1E293B;
+        }
+.module-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1E293B;
+            color: #2563EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+.module-content h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            color: #1E293B;
+            margin-bottom: 4px;
+        }
+.module-content p {
+            font-size: 14px;
+            color: #64748B;
+        }
+.tech-decoration {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #CBD5E1;
+            text-align: right;
+        }
+</style>
+</head>
+<body><div class="slide-container">
+        <div class="header-bar">
+            <h1>Strategic Architecture Delivers Measurable ROI</h1>
+            <span class="slide-number">02 :: APPROACH</span>
+        </div>
+<div class="content-grid" style="transform: translate(0px, -8.39062px);">
+            <div class="text-column">
+                <div class="highlight-quote">"We don't just wrap APIs—we architect &nbsp;systems that deliver measurable ROI."</div>
+                <p class="body-text">
+                    Foundry AI Partners emphasizes production readiness, data sovereignty, and deep integration.
+                </p>
+                <p class="body-text">
+                    We deploy on your infrastructure—whether private cloud or on-premise hardware—ensuring complete data sovereignty and compliance with gaming regulations.
+                </p>
+            </div>
+<div class="capabilities-stack">
+                <!-- Module 1 -->
+                <div class="capability-module">
+                    <div class="module-icon"><i class="fas fa-sitemap"></i></div>
+                    <div class="module-content">
+                        <h3>STRATEGIC_ARCHITECTURE</h3>
+                        <p>Roadmap development aligned with business objectives.</p>
+                    </div>
+                </div>
+<!-- Module 2 -->
+                <div class="capability-module">
+                    <div class="module-icon"><i class="fas fa-robot"></i></div>
+                    <div class="module-content">
+                        <h3>CUSTOM_AUTONOMOUS_AGENTS</h3>
+                        <p>Multi-step workflow automation with human-in-the-loop.</p>
+                    </div>
+                </div>
+<!-- Module 3 -->
+                <div class="capability-module">
+                    <div class="module-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="module-content">
+                        <h3>SECURE_INFRASTRUCTURE</h3>
+                        <p>Deployment with data sovereignty guarantees.</p>
+                    </div>
+                </div>
+<!-- Module 4 -->
+                <div class="capability-module">
+                    <div class="module-icon"><i class="fas fa-brain"></i></div>
+                    <div class="module-content">
+                        <h3>DOMAIN_SPECIFIC_TRAINING</h3>
+                        <p>Model training on proprietary datasets.</p>
+                    </div>
+                </div>
+<!-- Module 5 -->
+                <div class="capability-module">
+                    <div class="module-icon"><i class="fas fa-database"></i></div>
+                    <div class="module-content">
+                        <h3>RAG_PIPELINES</h3>
+                        <p>Knowledge systems grounded in organizational data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

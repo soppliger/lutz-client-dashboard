@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operational Complexity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f0f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.slide-container {
+            width: 1280px;
+            min-height: 720px; /* keep as required */
+            background-color: #FFFFFF;
+            color: #3B4252;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+            /* keep top padding to preserve title spacing; reduce bottom padding to save height */
+            padding: 60px 80px 40px;
+        }
+/* Header Section */
+        .header-bar {
+            border-bottom: 2px solid #2563EB;
+            /* reduce internal spacing */
+            padding-bottom: 8px;
+            margin-bottom: 20px; /* reduced from 40 */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E293B;
+            max-width: 800px;
+            line-height: 1.2;
+            /* do not change top padding/spacing of title */
+        }
+.slide-number {
+            font-family: 'JetBrains Mono', monospace;
+            color: #2563EB;
+            font-size: 18px;
+        }
+/* Intro Text */
+        .intro-text {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #4B5563;
+            margin-bottom: 20px; /* reduced from 40 */
+            max-width: 1000px;
+        }
+/* Terminal Grid */
+        .terminal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px; /* reduced from 30 */
+        }
+.terminal-window {
+            background-color: #1E293B;
+            color: #FFFFFF;
+            padding: 18px; /* reduced from 25 */
+            position: relative;
+            min-height: 150px; /* reduced from 180 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+.terminal-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: #94A3B8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 6px; /* reduced from 10 */
+            margin-bottom: 10px; /* reduced from 15 */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+.terminal-header::before {
+            content: '>';
+            color: #2563EB;
+            font-weight: bold;
+        }
+.metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: #2563EB; /* Blue for emphasis */
+            margin-bottom: 8px; /* slightly reduced */
+        }
+.metric-desc {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #E2E8F0;
+        }
+.alert-icon {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            color: #ef4444; /* Red for alert/friction */
+            opacity: 0.8;
+        }
+</style>
+</head>
+<body><div class="slide-container">
+        <div class="header-bar">
+            <h1>Operational Complexity Creates Untapped Automation Potential</h1>
+            <span class="slide-number">01 :: CONTEXT</span>
+        </div>
+<p class="intro-text" style="width: 1110.82px; min-width: 1110.82px; max-width: 1110.82px; transform: translate(0px, 0px);">
+            Lutz &amp; Company, PC manages complex operations across gaming, hospitality, racing, and food service. Current manual workflows create friction points that consume valuable time and introduce operational risk.
+        </p>
+<div class="terminal-grid" style="transform: translate(0px, 24.6383px);">
+            <!-- Terminal 1 -->
+            <div class="terminal-window" style="transform: translate(0px, 8px);">
+                <div class="terminal-header">FRICTION_POINT_01 :: MANUAL_EFFORT</div>
+                <i class="fas fa-keyboard alert-icon"></i>
+                <div>
+                    <div class="metric-value">15-25 HOURS/WEEK</div>
+                    <div class="metric-desc">Operations teams spend significant time on manual data entry and reconciliation across multiple systems.</div>
+                </div>
+            </div>
+<!-- Terminal 2 -->
+            <div class="terminal-window" style="transform: translate(0px, 8px);">
+                <div class="terminal-header">FRICTION_POINT_02 :: FINANCIAL_CLOSE</div>
+                <i class="fas fa-file-invoice-dollar alert-icon"></i>
+                <div>
+                    <div class="metric-value">5-7 DAYS</div>
+                    <div class="metric-desc">Financial close processes extend due to complexity in tracking revenue across gaming, hospitality, and racing.</div>
+                </div>
+            </div>
+<!-- Terminal 3 -->
+            <div class="terminal-window" style="transform: translate(0px, 12.3516px);">
+                <div class="terminal-header">FRICTION_POINT_03 :: VISIBILITY_GAPS</div>
+                <i class="fas fa-eye-slash alert-icon"></i>
+                <div>
+                    <div class="metric-value">2-4 HOURS DELAY</div>
+                    <div class="metric-desc">Real-time visibility gaps delay exception handling, impacting guest service and operational efficiency.</div>
+                </div>
+            </div>
+<!-- Terminal 4 -->
+            <div class="terminal-window" style="transform: translate(0px, 12.3516px);">
+                <div class="terminal-header">FRICTION_POINT_04 :: MANUAL_RESEARCH</div>
+                <i class="fas fa-search alert-icon"></i>
+                <div>
+                    <div class="metric-value">HIGH LATENCY</div>
+                    <div class="metric-desc">Pricing and competitive analysis requires manual research across multiple data sources and market segments.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

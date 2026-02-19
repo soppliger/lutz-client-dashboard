@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Opportunity & Readiness Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f0f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1E293B; /* Dark Navy Terminal Background */
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+        }
+.system-status {
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: #2563EB; /* Primary Blue */
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+.system-status::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: #00FF00; /* Neon Green for 'Online' status */
+            border-radius: 50%;
+            box-shadow: 0 0 5px #00FF00;
+        }
+.main-content {
+            z-index: 2;
+            max-width: 900px;
+        }
+h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #FFFFFF;
+        }
+h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #94A3B8; /* Slate 400 */
+            margin-bottom: 60px;
+            border-left: 4px solid #2563EB;
+            padding-left: 24px;
+        }
+.meta-info {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            color: #2563EB;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+.cursor {
+            display: inline-block;
+            width: 12px;
+            height: 24px;
+            background-color: #2563EB;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+@keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+/* Decorative Elements */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 1;
+        }
+.corner-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #2563EB;
+            opacity: 0.2;
+            z-index: 1;
+        }
+.top-right { top: -20px; right: -20px; border-left: none; border-bottom: none; }
+        .bottom-right { bottom: -20px; right: -20px; border-left: none; border-top: none; }
+.logo-placeholder {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 24px;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+.logo-icon {
+            color: #2563EB;
+        }
+</style>
+</head>
+<body><div class="slide-container">
+        <div class="grid-overlay"></div>
+        <div class="corner-decoration top-right"></div>
+        <div class="corner-decoration bottom-right"></div>
+<div class="system-status">
+            SYSTEM_ONLINE :: V.2.2.0
+        </div>
+<div class="main-content">
+            <h1 style="width: 1041.54px; min-width: 1041.54px; max-width: 1041.54px; transform: translate(0px, 0px);">AI Automation Readiness </h1>
+            <h2>A Presentation for Lutz &amp; Company, PC</h2>
+<div class="meta-info">
+                <p>&gt; PREPARED_BY: FOUNDRY AI PARTNERS</p>
+                <p>&gt; DATE: FEBRUARY 2026<span class="cursor"></span></p>
+            </div>
+        </div>
+<div class="logo-placeholder">
+             FOUNDRY_AI
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+{
+  "project_info": {
+    "title": "AI Opportunity & Readiness Assessment",
+    "created": 1771348087.2929964,
+    "last_updated": 1771348374.301561,
+    "total_slides": 8
+  },
+  "slides": [
+    {
+      "id": "title_slide",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "operational_complexity",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "strategic_architecture",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "discovery_engagement",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "assessment_report",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "use_case_roadmap",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "partnership_next_steps",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "closing_slide",
+      "state": "edited",
+      "pageNum": 8
+    }
+  ],
+  "outline": [
+    {
+      "id": "title_slide",
+      "title": "AI Opportunity & Readiness Assessment",
+      "summary": "Title slide introducing the presentation for Lutz & Company, PC prepared by Foundry AI Partners.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "operational_complexity",
+      "title": "Operational Complexity & Automation Potential",
+      "summary": "Overview of operational challenges and the potential for AI to transform data into business value.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "strategic_architecture",
+      "title": "Strategic Architecture & Core Capabilities",
+      "summary": "Explanation of Foundry AI's approach focused on measurable ROI and core capabilities like custom agents and secure infrastructure.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "discovery_engagement",
+      "title": "Fixed-Fee Discovery Engagement",
+      "summary": "Details of the proposed $7,000 assessment engagement, including workshops and analysis scope.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "assessment_report",
+      "title": "Assessment Report Deliverables",
+      "summary": "Breakdown of the final report components: Executive Summary, Current State Analysis, and Opportunity Matrix.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "use_case_roadmap",
+      "title": "Use Case Brief & Implementation Roadmap",
+      "summary": "Description of the detailed use case brief and high-level implementation roadmap deliverables.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "partnership_next_steps",
+      "title": "Partnership Principles & Next Steps",
+      "summary": "Outline of partnership approach, immediate actions, and communication protocol.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "closing_slide",
+      "title": "Ready to Deploy Intelligence",
+      "summary": "Closing slide with call to action and contact information.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}
